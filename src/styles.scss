@@ -13,5 +13,21 @@ body {
     margin: 0;
     background: #e6ffcd
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.text-bolsiyo {
+    color: black;
+    font-size: 28px;
+    font-weight: 600;
+    text-decoration: underline;
+}

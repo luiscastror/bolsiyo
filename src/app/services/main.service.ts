@@ -14,8 +14,13 @@ export class MainService {
 
   constructor(private http: HttpClient) { }
 
-  get(): Observable<any> {
-    return this.http.get(this.baseURL + '?key=' + this.key)
+  get(q: string, cat: any): Observable<any> {
+    const base = this.baseURL + '?key=' + this.key;
+    const query = q ? '&lang=es&q=' + q : '';
+    const category = cat ? '&category=' + cat : '';
+
+    const endpoint = base + query + category;
+    return this.http.get(endpoint)
   }
 
 }

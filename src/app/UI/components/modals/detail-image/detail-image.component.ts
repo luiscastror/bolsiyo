@@ -13,8 +13,12 @@ export class DetailImageComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
+  categories: any;
+
   ngOnInit(): void {
-    console.log("Desde el dialog", this.data);
+    this.data.tags.split(',');
+    this.categories = this.data.tags.split(',');
+
   }
 
 }

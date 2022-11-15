@@ -11,6 +11,10 @@ import { DetailImageComponent } from '../../components/modals/detail-image/detai
 export class MainComponent implements OnInit {
 
   images: any[] = [];
+  q: string = '';
+  cat: any;
+  categories: any[] = ["science", "education", "people", "feelings", "computer", "buildings"];
+
 
   constructor(
     private MainService: MainService,
@@ -23,8 +27,7 @@ export class MainComponent implements OnInit {
 
 
   loadImages() {
-    this.MainService.get().subscribe((response: any) => {
-      console.log(response)
+    this.MainService.get(this.q, this.cat).subscribe((response: any) => {
       this.images = response.hits;
     }, error => {
       alert("Error http");
@@ -36,7 +39,8 @@ export class MainComponent implements OnInit {
 
   showDetails(image: any) {
     const modal = this.matDialog.open(DetailImageComponent, {
-      minWidth: "50%"
+      minWidth: "50%",
+      data: image
     });
   }
 

@@ -1,7 +1,16 @@
 <div class="py-3 px-3 md:py-5 md:px-16">
-    <div class="flex flex-row rounded bg-white border-2 px-4 py-8 mb-3">
-        <input class="border-2 px-5 py-3 w-full" type="text" placeholder="Search and detail your image">
-        <button class="px-3 py-5 bg-green-600 hover:bg-green-900 text-white">Search</button>
+    <div class="flex flex-col md:flex-row rounded bg-white border-2 px-4 py-8 mb-3">
+        <mat-form-field class="w-full mr-3" appearance="outline">
+            <mat-label>Search and detail your image</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi" [(ngModel)]="q" (keyup.enter)="loadImages()" maxlength="100">
+        </mat-form-field>
+        <mat-form-field class="w-full mr-3" appearance="outline">
+            <mat-label>Categories</mat-label>
+            <mat-select [(ngModel)]="cat" multiple>
+                <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button class="px-3 py-3 rounded bg-green-600 hover:bg-green-900 text-white" (click)="loadImages()">Search</button>
     </div>
     <div class="flex flex-row flex-wrap">
         <div *ngFor="let image of images" class="mb-5 w-1/2 md:w-1/4 p-1 md:p-3">

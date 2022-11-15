@@ -1,1 +1,39 @@
-<p>detail-image works!</p>
+<h2 mat-dialog-title>Detail bolsiyo image ({{data.id}} / {{data.type}}) </h2>
+<mat-dialog-content class="mat-typography">
+    <div class="flex flex-col md:flex-row">
+        <div class="w-12/12 md:w-8/12 border-0 md:border-r-2 p-3">
+            <img [src]="data.largeImageURL" [alt]="data.tags">
+        </div>
+        <div class="w-12/12 md:w-4/12 p-3 flex flex-col">
+            <div class="mb-5">
+                <p class="text-bolsiyo">User</p>
+                <mat-chip-list aria-label="Dog selection">
+                    <mat-chip>
+                        <img matChipAvatar [src]="data.userImageURL" />
+                        {{data.user}}
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+            <div class="mb-5">
+                <p class="text-bolsiyo">Views</p>
+                <p class="font-bold">{{data.views}}</p>
+            </div>
+            <div class="mb-5">
+                <p class="text-bolsiyo">Likes</p>
+                <p class="font-bold">{{data.likes}}</p>
+            </div>
+            <div class="mb-5">
+                <p class="text-bolsiyo">Tags</p>
+                <mat-chip-list aria-label="Dog selection">
+                    <mat-chip *ngFor="let data of categories">
+                        <img matChipAvatar src="https://static.wixstatic.com/media/d7a1b7_bb0f1a16bead42a8b28b45a88c417c9e~mv2.png/v1/fill/w_320,h_320,al_c,lg_1,q_85,enc_auto/20201223_MarcaBolsiyo-07.png" />
+                        {{data}}
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>OK</button>
+</mat-dialog-actions>
