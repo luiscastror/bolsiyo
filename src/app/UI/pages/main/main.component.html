@@ -1,0 +1,13 @@
+<div class="py-3 px-3 md:py-5 md:px-16">
+    <div class="flex flex-row rounded bg-white border-2 px-4 py-8 mb-3">
+        <input class="border-2 px-5 py-3 w-full" type="text" placeholder="Search and detail your image">
+        <button class="px-3 py-5 bg-green-600 hover:bg-green-900 text-white">Search</button>
+    </div>
+    <div class="flex flex-row flex-wrap">
+        <div *ngFor="let image of images" class="mb-5 w-1/2 md:w-1/4 p-1 md:p-3">
+            <div class="bg-white border-2 rounded cursor-pointer p-1 md:p-3" (click)="showDetails(image)">
+                <div class="bg-image h-48 md:h-80" [ngStyle]="{'background-image': 'url(' + image.webformatURL + ')'}"></div>
+            </div>
+        </div>
+    </div>
+</div>

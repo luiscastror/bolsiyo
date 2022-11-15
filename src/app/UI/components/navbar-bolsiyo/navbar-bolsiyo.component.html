@@ -1,0 +1,12 @@
+<div class="flex justify-center md:justify-between h-16 bg-white border-b-2 items-center md:px-16 md:py-8">
+    <div>
+        <img [src]="logo">
+    </div>
+    <div>
+        <ul class="hidden md:flex">
+            <li class="pl-5 cursor-pointer" *ngFor="let item of menu; index as index;">
+                {{item.label}} {{index + 1 }}
+            </li>
+        </ul>
+    </div>
+</div>
